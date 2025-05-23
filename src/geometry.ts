@@ -27,3 +27,23 @@ export class RectangleAdapter implements Rectangular {
     return this.square.getSide();
   }
 }
+
+export class Calc {
+  getArea(shape: Rectangular): number {
+    return shape.getWidth() * shape.getHeight();
+  }
+
+  getPerimeter(shape: Rectangular): number {
+    return 2 * (shape.getWidth() + shape.getHeight());
+  }
+
+  getDiagonal(shape: Rectangular): number {
+    return Math.sqrt(
+      shape.getWidth() ** 2 + shape.getHeight() ** 2
+    );
+  }
+
+  getWidthHeightRatio(shape: Rectangular): number {
+    return shape.getWidth() / shape.getHeight();
+  }
+}

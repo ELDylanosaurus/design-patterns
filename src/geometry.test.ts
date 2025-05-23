@@ -1,4 +1,4 @@
-import { RectangleAdapter, Square } from "./geometry";
+import { RectangleAdapter, Square, Calc } from "./geometry";
 import { Calculator } from "./geometry.third-party";
 
 test("RectangleAdapter adapts Quadratic as a Rectangular object", () => {
@@ -7,4 +7,12 @@ test("RectangleAdapter adapts Quadratic as a Rectangular object", () => {
   expect(Calculator.getArea(adapted)).toBeCloseTo(9);
   expect(Calculator.getPerimeter(adapted)).toBeCloseTo(12);
   expect(Calculator.getDiagonal(adapted)).toBeCloseTo(Math.sqrt(18));
+});
+
+test("Calculator getWidthHeightRatio works correctly", () => {
+  const square = new Square(10);
+  const adapter = new RectangleAdapter(square);
+  const calculator = new Calc();
+  const ratio = calculator.getWidthHeightRatio(adapter);
+  expect(ratio).toBe(1);
 });
